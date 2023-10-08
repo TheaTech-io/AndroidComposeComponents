@@ -9,7 +9,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.theatech.composecomponents.components.TTPopUp
+import com.theatech.composecomponents.components.TTScaffold
+import com.theatech.composecomponents.components.TTToolbar
 import com.theatech.composecomponents.ui.theme.ComposeComponentsTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,10 +32,17 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    TTScaffold(
+        topBar = {
+            TTToolbar(
+                title = "Compose Components",
+                isBackButtonVisible = true,
+                onEndIconClick = {}
+            )
+        }
+    ) {
+        Text(text = "Hello $name!", modifier = modifier, color = Color.White)
+    }
 }
 
 @Preview(showBackground = true)
