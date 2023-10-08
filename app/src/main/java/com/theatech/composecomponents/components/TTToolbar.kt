@@ -22,7 +22,7 @@ import com.theatech.composecomponents.sdp
 
 @Composable
 fun TTToolbar(
-    title: String,
+    title: String? = null,
     isBackButtonVisible: Boolean = false,
     endIcon: Int? = null,
     textNearIcon: Int? = null,
@@ -64,13 +64,15 @@ fun TTToolbar(
                 }
             }
 
-            TTText(
-                text = title,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                align = TextAlign.Center,
-                color = Color.DarkGray
-            )
+            title?.let {
+                TTText(
+                    text = title,
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    align = TextAlign.Center,
+                    color = Color.DarkGray
+                )
+            }
         }
 
         endIcon?.let {
@@ -95,6 +97,15 @@ fun TTToolbar(
 @Composable
 fun TTToolbarPreview() {
     TTToolbar(title = "Title")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TTToolbarWithoutTitlePreview() {
+    TTToolbar(
+        isBackButtonVisible = true,
+        onBackClick = {}
+    )
 }
 
 @Preview(showBackground = true)
