@@ -50,7 +50,6 @@ fun TTTextField(
         value = text,
         onValueChange = onTextChange,
         placeholder = { Text(placeholder) },
-        label = { Text(placeholder) },
         singleLine = singleLine,
         maxLines = maxLines,
         leadingIcon = startIcon,
